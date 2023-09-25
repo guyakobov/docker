@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MySQL Data Fetch</title>
+</head>
+<body>
+    <h1>MySQL Data</h1>
+    
+    <?php
+    // Read the SQL query from the file
+    $sql = file_get_contents('sql_query.sql');
+
+    // PHP code to fetch data from MySQL and display it
+    $servername = "mysql:5.7"; // Use the name of your MySQL container
+    $username = "root";
+    $password = "123456"; // Use the MySQL root password you set
+    $dbname = "stg_skai"; // Use your MySQL database name
+
+    // Create a connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check the connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Execute the SQL query
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        echo "<ul>";
+        while ($row = $result->fetch_assoc()) {
+            echo "<li>" . $row["column_name"] . "</li>"; // Replace 'column_name' with your column name
+        }
+        echo "</ul>";
+    } else {
+        echo "No data found.";
+    }
+
+    // Close the connection
+    $conn->close();
+    ?>
+</body>
+</html>
