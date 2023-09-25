@@ -28,3 +28,11 @@ docker-compose up -d
 ```bash
 http://localhost:9980/
 ```
+
+## Step 3: Stop and Remove the Docker Compose Services
+
+
+
+```bash
+docker-compose down
+```
