@@ -13,9 +13,9 @@ Before you begin, make sure you have the following installed:
 
 ## Step 1: Clone the Repository
 
-
-git clone <repository_url>
-cd <repository_directory>
+```shell
+git clone <https://github.com/guyakobov/docker>
+```
 
 ## Step 2: Build and Start the Docker Compose Services
 
